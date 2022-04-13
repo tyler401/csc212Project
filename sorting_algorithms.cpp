@@ -3,10 +3,10 @@
 #include <string>
 #include <vector>
 
-void insertionSort();
-void mergeSort();
-void quickSort();
-void heapSort();
+void insertionSort(std::vector<int> &data);
+void mergeSort(std::vector<int> &data);
+void quickSort(std::vector<int> &data);
+void heapSort(std::vector<int> &data);
 
 int main(int argc, char** argv){
     std::string sorting_type = argv[1];
@@ -44,4 +44,16 @@ void insertionSort(std::vector<int> &data){
             }
         }
     }
+}
+
+void mergeSort(std::vector<int> &data){
+
+}
+
+void quickSort(std::vector<int> &data){
+
+}
+
+void heapSort(std::vector<int> &data){
+
 }
