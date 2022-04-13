@@ -33,7 +33,7 @@ int main(int argc, char** argv){
 
 void insertionSort(std::vector<int> &data){
     int temp;
-    for (unsigned int i = 0; i < data.length(); i++){
+    for (unsigned int i = 0; i < data.size(); i++){
         for (unsigned int j = i; j > 0; j--){
             if (data[j] < data[j - 1]){
                 temp = data[j];
