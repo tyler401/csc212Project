@@ -10,6 +10,6 @@
 <p>some paragrapgh about quick Sort here</p>
 
 <strong>Tyler, Cam, Ericsen, Bowen</strong>
-Do everything on this branch guys 
+<p>Do everything on this branch guys 
 use git checkout -b test
-then git push origin test
+then git push origin test</p>
