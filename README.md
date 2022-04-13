@@ -1,4 +1,4 @@
-<h3> # CSC212 - Final Project </h4>
+<h3> # CSC212 - Final Project Sorting Algorithms</h4>
 
 <h2> Insertion Sort </h2>
 <p>some paragrapgh about Insertion here</p>
