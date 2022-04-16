@@ -5,6 +5,8 @@
 
 void insertionSort(std::vector<int> &data);
 void mergeSort(std::vector<int> &data);
+void partition(std::vector<int> &data, int low, int high);
+void r_quickSort(std::vector<int> &data, int low, int high);
 void quickSort(std::vector<int> &data);
 void heapSort(std::vector<int> &data);
 
@@ -32,9 +34,11 @@ int main(int argc, char** argv){
 }
 
 void insertionSort(std::vector<int> &data){
+    // temp variable for swapping later
     int temp;
     for (unsigned int i = 0; i < data.size(); i++){
         for (unsigned int j = i; j > 0; j--){
+            // inserts data[j] into the sorted section
             if (data[j] < data[j - 1]){
                 temp = data[j];
                 data[j] = data[j - 1];
@@ -52,9 +56,7 @@ void mege(std::vector<int> &data, int left,int middle, int right){
 
 }
 
-
-
- void merge(int *array, int l, int m, int r) {
+void merge(int *array, int l, int m, int r) {
    int i, j, k, nl, nr;
 
    nl = m-l+1; nr = r-m;
@@ -96,8 +98,16 @@ void mergeSort(int *array, int l, int r) {
    }
 }
 
+void partition(std::vector<int> &data, int low, int high){
+    int i = low;
+    int j = high + 1;
+    while (1) {
+        while (A[++i] < A[low])
+    }
+}
+void r_quickSort(std::vector<int> &data, int low, int high){
 
-
+}
 void quickSort(std::vector<int> &data){
 
 }
