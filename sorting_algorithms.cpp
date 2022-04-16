@@ -2,10 +2,12 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <algorithm>
+#include <cstdlib>
 
 void insertionSort(std::vector<int> &data);
 void mergeSort(std::vector<int> &data);
-void partition(std::vector<int> &data, int low, int high);
+int partition(std::vector<int> &data, int low, int high);
 void r_quickSort(std::vector<int> &data, int low, int high);
 void quickSort(std::vector<int> &data);
 void heapSort(std::vector<int> &data);
@@ -34,15 +36,11 @@ int main(int argc, char** argv){
 }
 
 void insertionSort(std::vector<int> &data){
-    // temp variable for swapping later
-    int temp;
     for (unsigned int i = 0; i < data.size(); i++){
         for (unsigned int j = i; j > 0; j--){
             // inserts data[j] into the sorted section
             if (data[j] < data[j - 1]){
-                temp = data[j];
-                data[j] = data[j - 1];
-                data[j - 1] = temp;
+                std::swap(data[i], data[j - 1]);
             } else {
                 break;
             }
@@ -63,7 +61,6 @@ void merge(int *A, int *aux, int lo, int mid, int hi) {
         }
 }
 
-<<<<<<< HEAD
 void merge(int *array, int l, int m, int r) {
    int i, j, k, nl, nr;
 
@@ -106,17 +103,6 @@ void mergeSort(int *array, int l, int r) {
    }
 }
 
-void partition(std::vector<int> &data, int low, int high){
-    int i = low;
-    int j = high + 1;
-    while (1) {
-        while (A[++i] < A[low])
-    }
-}
-void r_quickSort(std::vector<int> &data, int low, int high){
-
-}
-=======
 void r_mergesort(int *A, int *aux, int lo, int hi){
 // base case (single element or empty list)
      if (hi<= lo) return;
@@ -134,9 +120,46 @@ void mergesort (int *A, int n){
     delete [] aux;
 }
 
->>>>>>> 402c6fc141af9d998aa47146a8e9e5499f5b83f8
-void quickSort(std::vector<int> &data){
+int partition(std::vector<int> &data, int low, int high){
+    int i = low;
+    int j = high + 1;
+    while (1) {
+        // while data[i] is less than the pivot, increase i
+        while (data[++i] < data[low]){
+            if (i == high){
+                break;
+            }
+        }
+        // while data[i] is greater than the pivot, decrease j
+        while (data[low] < data[--j]){
+            if (j == low){
+                break;
+            }
+        }
+        // if i and j cross, break
+        if (i >= j){
+            break;
+        } 
+        std::swap(data[i], data[j]);
+    }
+    // swap the pivot with data[j]
+    std::swap(data[low], data[j]);
+    // return the pivot's location
+    return j;
+}
+void r_quickSort(std::vector<int> &data, int low, int high){
+    if (high <= low){
+        return;
+    }
+    int p = partition(data, low, high);
+    r_quickSort(data, low, p - 1);
+    r_quickSort(data, p + 1, high);
+}
 
+void quickSort(std::vector<int> &data){
+    int n = data.size();
+    std::random_shuffle(data.begin(), n);
+    r_quickSort(data, 0, n - 1);
 }
 
 void heapSort(std::vector<int> &data){
