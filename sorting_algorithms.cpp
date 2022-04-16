@@ -19,13 +19,13 @@ int main(int argc, char** argv){
         insertionSort(data);
     }
     if (sorting_type == "merge"){
-        mergeSort(data);
+        //mergeSort(data);
     }
     if (sorting_type == "quick"){
-        quickSort(data);
+       // quickSort(data);
     }
     if (sorting_type == "heap"){
-        heapSort(data);
+       // heapSort(data);
     } else {
         std::cout << "Did not select valid sorting algorithm.\n";
     }
@@ -46,9 +46,57 @@ void insertionSort(std::vector<int> &data){
     }
 }
 
-void mergeSort(std::vector<int> &data){
+void mege(std::vector<int> &data, int left,int middle, int right){
+    std::vector<int> rec(data.begin() + left, data.begin() + right + 1);
+
 
 }
+
+
+
+ void merge(int *array, int l, int m, int r) {
+   int i, j, k, nl, nr;
+
+   nl = m-l+1; nr = r-m;
+   int larr[nl], rarr[nr];
+ 
+   for(i = 0; i<nl; i++)
+      larr[i] = array[l+i];
+   for(j = 0; j<nr; j++)
+      rarr[j] = array[m+1+j];
+   i = 0; j = 0; k = l;
+  
+   while(i < nl && j<nr) {
+      if(larr[i] <= rarr[j]) {
+         array[k] = larr[i];
+         i++;
+      }else{
+         array[k] = rarr[j];
+         j++;
+      }
+      k++;
+   }
+   while(i<nl) {      
+      array[k] = larr[i];
+      i++; k++;
+   }
+   while(j<nr) {     
+      array[k] = rarr[j];
+      j++; k++;
+   }
+}
+void mergeSort(int *array, int l, int r) {
+   int m;
+   if(l < r) {
+      int m = l+(r-l)/2;
+ 
+      mergeSort(array, l, m);
+      mergeSort(array, m+1, r);
+      merge(array, l, m, r);
+   }
+}
+
+
 
 void quickSort(std::vector<int> &data){
 
