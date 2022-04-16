@@ -4,6 +4,8 @@
 #include <vector>
 #include <algorithm>
 #include <cstdlib>
+#include <cstdint>
+#include <cstring>
 
 void insertionSort(std::vector<int> &data);
 void mergeSort(std::vector<int> &data);
