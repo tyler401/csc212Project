@@ -158,7 +158,7 @@ void r_quickSort(std::vector<int> &data, int low, int high){
 
 void quickSort(std::vector<int> &data){
     int n = data.size();
-    std::random_shuffle(data.begin(), n);
+    std::random_shuffle(data.begin(), data.begin() + n);
     r_quickSort(data, 0, n - 1);
 }
 
