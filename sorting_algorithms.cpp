@@ -46,57 +46,35 @@ void insertionSort(std::vector<int> &data){
     }
 }
 
-void mege(std::vector<int> &data, int left,int middle, int right){
-    std::vector<int> rec(data.begin() + left, data.begin() + right + 1);
-
-
+void merge(int *A, int *aux, int lo, int mid, int hi) {
+// copy array
+    std::memcpy(aux+lo, A+lo, (hi-lo+1) * sizeof(int));
+// merge
+    int i=lo,j= mid +1;
+    for (int k= lo ; k<= hi: k++){
+        if (i > mid) A[k]= aux[j++];
+        else if (j > hi) A[k] = aux[i++];
+        else if (aux[j] < aux[i]) A[k]= aux[j++];
+        else A[k]= aux[i++];
+        }
 }
 
-
-
- void merge(int *array, int l, int m, int r) {
-   int i, j, k, nl, nr;
-
-   nl = m-l+1; nr = r-m;
-   int larr[nl], rarr[nr];
- 
-   for(i = 0; i<nl; i++)
-      larr[i] = array[l+i];
-   for(j = 0; j<nr; j++)
-      rarr[j] = array[m+1+j];
-   i = 0; j = 0; k = l;
-  
-   while(i < nl && j<nr) {
-      if(larr[i] <= rarr[j]) {
-         array[k] = larr[i];
-         i++;
-      }else{
-         array[k] = rarr[j];
-         j++;
-      }
-      k++;
-   }
-   while(i<nl) {      
-      array[k] = larr[i];
-      i++; k++;
-   }
-   while(j<nr) {     
-      array[k] = rarr[j];
-      j++; k++;
-   }
-}
-void mergeSort(int *array, int l, int r) {
-   int m;
-   if(l < r) {
-      int m = l+(r-l)/2;
- 
-      mergeSort(array, l, m);
-      mergeSort(array, m+1, r);
-      merge(array, l, m, r);
-   }
+void r_mergesort(int *A, int *aux, int lo, int hi){
+// base case (single element or empty list)
+     if (hi<= lo) return;
+    int mid = lo + (hi-lo) / 2;
+    // recursively sort halves
+    r_mergesort(A, aux, lo, mid);
+    r_mergesort (A, aux, mid+1, hi);
+// merge results
+    merge(A, aux, lo, mid, hi);
 }
 
-
+void mergesort (int *A, int n){
+    int *aux = new int[n];
+    r_mergesort (A, aux, 0, n-1) ;
+    delete [] aux;
+}
 
 void quickSort(std::vector<int> &data){
 
