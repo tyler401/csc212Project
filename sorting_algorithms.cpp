@@ -8,6 +8,9 @@
 #include <cstring>
 #include <sstream>
 
+// -- Function declaration
+//
+
 void insertionSort(std::vector<int> &data);
 void mergeSort(std::vector<int> &data);
 int partition(std::vector<int> &data, int low, int high);
@@ -16,6 +19,10 @@ void quickSort(std::vector<int> &data);
 void heapSort(std::vector<int> &data);
 
 void readFile(std::string &fname, std::vector<int> &data);
+void writeFile(std::string &fname, std::vector<int> &data);
+
+// -- Main --
+//
 
 int main(int argc, char** argv){
     std::string sorting_type = argv[1];
@@ -27,19 +34,27 @@ int main(int argc, char** argv){
 
     if (sorting_type == "insertion"){
         insertionSort(data);
+        writeFile(output_file, data);
     }
-    if (sorting_type == "merge"){
-        //mergeSort(data);
+    else if (sorting_type == "merge"){
+        // mergeSort(data);
+        // writeFile(output_file, data);
     }
-    if (sorting_type == "quick"){
+    else if (sorting_type == "quick"){
        // quickSort(data);
+       // writeFile(output_file, data);
     }
-    if (sorting_type == "heap"){
+    else if (sorting_type == "heap"){
        // heapSort(data);
-    } else {
+       // writeFile(output_file, data);
+    }
+    else {
         std::cout << "Did not select valid sorting algorithm.\n";
     }
 }
+
+// -- Functions --
+//
 
 void readFile(std::string &fname, std::vector<int> &data){
     std::string line;
@@ -59,6 +74,26 @@ void readFile(std::string &fname, std::vector<int> &data){
     }else{
         std::cout << "Unable to open file" << std::endl;
     }
+}
+
+void writeFile(std::string &fname, std::vector<int> &data){
+    std::ofstream outFile(fname);
+    unsigned int lastNumIndex = data.size()-1;
+
+    if(outFile.is_open()){
+        for(unsigned int i = 0; i < data.size(); i++){
+            int num = data[i];
+
+            if(i == lastNumIndex){
+                outFile << num;
+            }else{
+                outFile << num << " ";
+            }
+        }
+    }else{
+        std::cout << "ERROR!\n";
+    }
+    outFile.close();
 }
 
 void insertionSort(std::vector<int> &data){
