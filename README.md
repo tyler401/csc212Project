@@ -1,6 +1,7 @@
 <h3> # CSC212 - Final Project Sorting Algorithms</h4>
 
-> This program will take 3 parameters to run sorting type , input file and output file. Example: ./sorting_algorithms insertion input.txt output.txt
+> This program will take 3 parameters to run sorting type , input file and output file. 
+>Example: ./sorting_algorithms insertion input.txt output.txt
 
 
 
