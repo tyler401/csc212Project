@@ -16,6 +16,6 @@
 <p>some paragrapgh about quick Sort here</p>
 
 <h2> Heap Sort </h2>
-<p>some paragrapgh about quick Sort here</p>
+<p>some paragrapgh about Heap Sort here</p>
 
 <strong>Tyler, Cam, Ericsen, Bowen Drawbridge</strong>
