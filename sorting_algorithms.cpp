@@ -38,21 +38,21 @@ int main(int argc, char** argv){
 }
 
 void insertionSort(std::vector<int> &data){
-    for (unsigned int i = 0; i < data.size(); i++){
-        for (unsigned int j = i; j > 0; j--){
-            // inserts data[j] into the sorted section
-            if (data[j] < data[j - 1]){
-                std::swap(data[i], data[j - 1]);
-            } else {
-                break;
-            }
+    int n = sizeof(data) / sizeof(data[0]);
+    for (int i = 1; i < n; i++){
+        int temp = data[i];
+        int j = i - 1;
+        while (temp < data[j] && j >= 0){
+            data[j + 1] = data[j];
+            --j;
         }
+        data[j + 1] = temp;
     }
 }
 
 void merge(int *A, int *aux, int lo, int mid, int hi) {
 // copy array
-    std::memcpy(aux+lo, A+lo, (hi-lo+1) * sizeof(int));
+    memcpy(aux+lo, A+lo, (hi-lo+1) * sizeof(int));
 // merge
     int i=lo,j= mid +1;
     for (int k= lo ; k<= hi: k++){
