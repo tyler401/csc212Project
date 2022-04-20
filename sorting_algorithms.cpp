@@ -7,6 +7,7 @@
 #include <cstdint>
 #include <cstring>
 #include <sstream>
+#include <random>
 
 // -- Function declaration
 //
@@ -22,7 +23,6 @@ void readFile(std::string &fname, std::vector<int> &data);
 void writeFile(std::string &fname, std::vector<int> &data);
 
 // -- Main --
-//
 
 int main(int argc, char** argv){
     std::string sorting_type = argv[1];
@@ -54,7 +54,6 @@ int main(int argc, char** argv){
 }
 
 // -- Functions --
-//
 
 void readFile(std::string &fname, std::vector<int> &data){
     std::string line;
@@ -97,11 +96,11 @@ void writeFile(std::string &fname, std::vector<int> &data){
 }
 
 void insertionSort(std::vector<int> &data){
-    for (unsigned int i = 1; i < data.size(); i++){
+    for (unsigned int i = 0; i < data.size(); i++){
         for (unsigned int j = i; j > 0; j--){
             // inserts data[j] into the sorted section
             if (data[j] < data[j - 1]){
-                std::swap(data[j], data[j - 1]);
+                std::swap(data[i], data[j - 1]);
             } else {
                 break;
             }
@@ -113,7 +112,7 @@ void merge(int *A, int *aux, int lo, int mid, int hi) {
 // copy array
     std::memcpy(aux+lo, A+lo, (hi-lo+1) * sizeof(int));
 // merge
-    int i=lo,j= mid +1;
+    int i=lo, j= mid +1;
     for (int k= lo ; k<= hi; k++){
         if (i > mid) A[k]= aux[j++];
         else if (j > hi) A[k] = aux[i++];
