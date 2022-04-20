@@ -97,11 +97,11 @@ void writeFile(std::string &fname, std::vector<int> &data){
 }
 
 void insertionSort(std::vector<int> &data){
-    for (unsigned int i = 0; i < data.size(); i++){
+    for (unsigned int i = 1; i < data.size(); i++){
         for (unsigned int j = i; j > 0; j--){
             // inserts data[j] into the sorted section
             if (data[j] < data[j - 1]){
-                std::swap(data[i], data[j - 1]);
+                std::swap(data[j], data[j - 1]);
             } else {
                 break;
             }
