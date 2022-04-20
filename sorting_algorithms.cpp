@@ -55,6 +55,7 @@ int main(int argc, char** argv){
 
 // -- Functions --
 
+// Read in text file
 void readFile(std::string &fname, std::vector<int> &data){
     std::string line;
     std::ifstream file(fname);
@@ -75,6 +76,7 @@ void readFile(std::string &fname, std::vector<int> &data){
     }
 }
 
+// Write out sorted file contents
 void writeFile(std::string &fname, std::vector<int> &data){
     std::ofstream outFile(fname);
     unsigned int lastNumIndex = data.size()-1;
@@ -94,6 +96,8 @@ void writeFile(std::string &fname, std::vector<int> &data){
     }
     outFile.close();
 }
+
+// -- Sorting Algorithms --
 
 void insertionSort(std::vector<int> &data){
     for (unsigned int i = 0; i < data.size(); i++){
