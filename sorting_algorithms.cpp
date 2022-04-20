@@ -114,7 +114,7 @@ void merge(int *A, int *aux, int lo, int mid, int hi) {
     std::memcpy(aux+lo, A+lo, (hi-lo+1) * sizeof(int));
 // merge
     int i=lo,j= mid +1;
-    for (int k= lo ; k<= hi: k++){
+    for (int k= lo ; k<= hi; k++){
         if (i > mid) A[k]= aux[j++];
         else if (j > hi) A[k] = aux[i++];
         else if (aux[j] < aux[i]) A[k]= aux[j++];
