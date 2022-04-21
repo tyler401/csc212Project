@@ -2,10 +2,8 @@
 
 <strong>Tyler, Cam, Ericsen, Bowen Drawbridge</strong>
 
-> This program will take 3 parameters to run sorting type , input file and output file. 
->Example: ./sorting_algorithms insertion input.txt output.txt
-
-
+> This program will take 3 parameters to run:
+    >Ex: ./sorting_algorithms (sort type) (input file(.txt)) (output file(.txt))
 
 
 <h2> Insertion Sort </h2>
