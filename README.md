@@ -2,7 +2,7 @@
 
 <strong>Tyler, Cam, Ericsen, Bowen Drawbridge</strong>
 
-> This program take 3 parameters to run:
+> This program will take 3 parameters to run:
 >./sorting_algorithms (sort type) (input file(.txt)) (output file(.txt))
 
 
