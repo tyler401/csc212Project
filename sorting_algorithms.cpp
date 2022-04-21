@@ -49,8 +49,8 @@ int main(int argc, char** argv){
         writeFile(output_file, data);
     }
     else if (sorting_type == "quick"){
-       // quickSort(data);
-       // writeFile(output_file, data);
+        quickSort(data);
+        writeFile(output_file, data);
     }
     else if (sorting_type == "heap"){
         int n = sizeof(data) / sizeof(data[0]);
@@ -239,8 +239,4 @@ void heapSort(std::vector<int> &data)
 		// call max heapify on the reduced heap
 		heapify(data, i, 0);
 	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> eee0fac92c8813b4e9da639c925b20b0e2bb48d7
