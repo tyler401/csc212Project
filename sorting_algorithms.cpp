@@ -69,18 +69,16 @@ void readFile(std::string &fname, std::vector<int> &data){
     std::ifstream file(fname);
 
     if(file.is_open()){
-        while(getline(file,line)){
+        while(getline(file, line, ',')){
             std::istringstream iss(line);
             int token;
-            char c = ',';
-            //while(iss >> token){
-            while(getline(iss, token, c)){
+            while(iss >> token){
                 data.push_back(token);
             }
         }
-
         file.close();
-    }else{
+    }
+    else{
         std::cout << "Unable to open file" << std::endl;
     }
 }
