@@ -239,4 +239,8 @@ void heapSort(std::vector<int> &data)
 		// call max heapify on the reduced heap
 		heapify(data, i, 0);
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> eee0fac92c8813b4e9da639c925b20b0e2bb48d7
