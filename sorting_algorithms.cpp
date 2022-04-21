@@ -25,6 +25,13 @@ void writeFile(std::string &fname, std::vector<int> &data);
 // -- Main --
 
 int main(int argc, char** argv){
+    if (argc != 4)
+    {
+        std::cout << std::endl;
+        std::cout << "Usage: ./sorting_algorithm <sort type> <input file> <output file>";
+        std::cout << std:: endl << std::endl;
+        exit(0);
+    }
     std::string sorting_type = argv[1];
     std::string input_file = argv[2];
     std::string output_file = argv[3];
@@ -45,8 +52,9 @@ int main(int argc, char** argv){
        // writeFile(output_file, data);
     }
     else if (sorting_type == "heap"){
-       // heapSort(data);
-       // writeFile(output_file, data);
+        int n = sizeof(data) / sizeof(data[0]);
+        heapSort(data);
+        writeFile(output_file, data);
     }
     else {
         std::cout << "Did not select valid sorting algorithm.\n";
@@ -64,8 +72,9 @@ void readFile(std::string &fname, std::vector<int> &data){
         while(getline(file,line)){
             std::istringstream iss(line);
             int token;
-
-            while(iss >> token){
+            char c = ',';
+            //while(iss >> token){
+            while(getline(iss, token, c)){
                 data.push_back(token);
             }
         }
@@ -180,10 +189,54 @@ void r_quickSort(std::vector<int> &data, int low, int high){
 
 void quickSort(std::vector<int> &data){
     int n = data.size();
-    std::random_shuffle(data.begin(), data.begin() + n);
+    // Create random device
+    std::random_device rand_dev;
+    // mt19937 = mersenne_twister_engine
+    std::mt19937 g(rand_dev());
+    // random_shuffle is no longer available changed to shuffle
+    std::shuffle(data.begin(), data.begin() + n, g);
     r_quickSort(data, 0, n - 1);
 }
 
-void heapSort(std::vector<int> &data){
+// To heapify a subtree rooted with node i which is
+// an index in arr[]. n is size of heap
+void heapify(std::vector<int> &data, int n, int i)
+{
+	int largest = i; // Initialize largest as root
+	int l = 2 * i + 1; // left = 2*i + 1
+	int r = 2 * i + 2; // right = 2*i + 2
 
+	// If left child is larger than root
+	if (l < n && data[l] > data[largest])
+		largest = l;
+
+	// If right child is larger than largest so far
+	if (r < n && data[r] > data[largest])
+		largest = r;
+
+	// If largest is not root
+	if (largest != i) {
+		std::swap(data[i], data[largest]);
+
+		// Recursively heapify the affected sub-tree
+		heapify(data, n, largest);
+	}
+}
+
+// main function to do heap sort
+void heapSort(std::vector<int> &data)
+{
+    int n = data.size();
+	// Build heap (rearrange array)
+	for (int i = n / 2 - 1; i >= 0; i--)
+		heapify(data, n, i);
+
+	// One by one extract an element from heap
+	for (int i = n - 1; i >= 0; i--) {
+		// Move current root to end
+		std::swap(data[0], data[i]);
+
+		// call max heapify on the reduced heap
+		heapify(data, i, 0);
+	}
 }
