@@ -38,15 +38,15 @@ int main(int argc, char** argv){
     std::string input_file;
     std::string output_file;
 
-    std::cout << "Choose your sorting type: \n";
+    std::cout << "Choose your sorting type: ";
     std::cin >>  sorting_type;
     std::cout << std::endl;
 
-    std::cout << "Choose the input file you want to use: \n";
+    std::cout << "Choose the input file you want to use: ";
     std::cin >> input_file; 
     std::cout << std::endl;
 
-    std::cout << "Choose which output file you want to print to: \n";
+    std::cout << "Choose which output file you want to print to: ";
     std::cin >> output_file;
     std::cout << std::endl;
 
