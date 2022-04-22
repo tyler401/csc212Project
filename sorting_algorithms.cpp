@@ -31,6 +31,7 @@ int main(int argc, char** argv){
     std::string input_file;
     std::string output_file;
 
+    std::cout << std::endl;
     std::cout << "Choose your sorting type: ";
     std::cin >>  sorting_type;
     std::cout << std::endl;
