@@ -40,7 +40,7 @@ int main(int argc, char** argv){
     std::cin >> input_file; 
     std::cout << std::endl;
 
-    std::cout << "Choose which output file you want to print to: ";
+    std::cout << "Choose the file name of your sorted output: ";
     std::cin >> output_file;
     std::cout << std::endl;
 
