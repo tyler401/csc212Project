@@ -22,6 +22,7 @@ void heapSort(std::vector<int> &data);
 
 void readFile(std::string &fname, std::vector<int> &data);
 void writeFile(std::string &fname, std::vector<int> &data);
+void writeLog(std::chrono::milliseconds duration, std::string sorting_type);
 
 // -- Main --
 
@@ -57,8 +58,8 @@ int main(int argc, char** argv){
         // Stop timer
         std::chrono::system_clock::time_point stop = std::chrono::high_resolution_clock::now();
         std::chrono::milliseconds duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-        std::cout << "Time taken by function: " << duration.count() << " milliseconds" << std::endl;
         writeFile(output_file, data);
+        writeLog(duration, sorting_type);
     }
     else if (sorting_type == "merge" || sorting_type == "Merge"){
        // Start timer
@@ -69,8 +70,8 @@ int main(int argc, char** argv){
         // Stop timer
         std::chrono::system_clock::time_point stop = std::chrono::high_resolution_clock::now();
         std::chrono::milliseconds duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-        std::cout << "Time taken by function: " << duration.count() << " milliseconds" << std::endl;
         writeFile(output_file, data);
+        writeLog(duration, sorting_type);
     }
     else if (sorting_type == "quick" || sorting_type == "Quick"){
         // Start timer
@@ -81,8 +82,8 @@ int main(int argc, char** argv){
         // Stop timer
         std::chrono::system_clock::time_point stop = std::chrono::high_resolution_clock::now();
         std::chrono::milliseconds duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-        std::cout << "Time taken by function: " << duration.count() << " milliseconds" << std::endl;
         writeFile(output_file, data);
+        writeLog(duration, sorting_type);
     }
     else if (sorting_type == "heap" || sorting_type == "Heap"){
         // Start timer
@@ -94,8 +95,8 @@ int main(int argc, char** argv){
         // Stop timer
         std::chrono::system_clock::time_point stop = std::chrono::high_resolution_clock::now();
         std::chrono::milliseconds duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-        std::cout << "Time taken by function: " << duration.count() << " milliseconds" << std::endl;
         writeFile(output_file, data);
+        writeLog(duration, sorting_type);
     }
     else {
         std::cout << "Did not select valid sorting algorithm.\n";
@@ -143,6 +144,19 @@ void writeFile(std::string &fname, std::vector<int> &data){
         std::cout << "ERROR!\n";
     }
     outFile.close();
+}
+
+// Write out log
+void writeLog(std::chrono::milliseconds duration, std::string sorting_type){
+    std::string fname = "timeLog.txt";
+    std::ofstream logFile(fname, std::ofstream::app);
+
+    if(logFile.is_open()){
+        logFile <<"Time taken by " << sorting_type << ": " << duration.count() << "\n";
+    }else{
+        std::cout << "ERROR!\n";
+    }
+    logFile.close();
 }
 
 // -- Sorting Algorithms --
