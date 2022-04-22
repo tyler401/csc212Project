@@ -26,13 +26,6 @@ void writeFile(std::string &fname, std::vector<int> &data);
 // -- Main --
 
 int main(int argc, char** argv){
-    if (argc != 4)
-    {
-        std::cout << std::endl;
-        std::cout << "Usage: ./sorting_algorithm <sort type> <input file> <output file>";
-        std::cout << std:: endl << std::endl;
-        exit(0);
-    }
 
     std::string sorting_type;
     std::string input_file;
