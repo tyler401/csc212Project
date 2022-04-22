@@ -33,14 +33,28 @@ int main(int argc, char** argv){
         std::cout << std:: endl << std::endl;
         exit(0);
     }
-    std::string sorting_type = argv[1];
-    std::string input_file = argv[2];
-    std::string output_file = argv[3];
+
+    std::string sorting_type;
+    std::string input_file;
+    std::string output_file;
+
+    std::cout << "Choose your sorting type: \n";
+    std::cin >>  sorting_type;
+    std::cout << std::endl;
+
+    std::cout << "Choose the input file you want to use: \n";
+    std::cin >> input_file; 
+    std::cout << std::endl;
+
+    std::cout << "Choose which output file you want to print to: \n";
+    std::cin >> output_file;
+    std::cout << std::endl;
+
 
     std::vector<int> data;
     readFile(input_file, data);
 
-    if (sorting_type == "insertion"){
+    if (sorting_type == "insertion" || sorting_type == "Insertion" || sorting_type == "insert" || sorting_type == "Insert"){
         // Start timer
         std::chrono::system_clock::time_point start = std::chrono::high_resolution_clock::now();
 
@@ -52,7 +66,7 @@ int main(int argc, char** argv){
         std::cout << "Time taken by function: " << duration.count() << " milliseconds" << std::endl;
         writeFile(output_file, data);
     }
-    else if (sorting_type == "merge"){
+    else if (sorting_type == "merge" || sorting_type == "Merge"){
        // Start timer
         std::chrono::system_clock::time_point start = std::chrono::high_resolution_clock::now();
 
@@ -64,7 +78,7 @@ int main(int argc, char** argv){
         std::cout << "Time taken by function: " << duration.count() << " milliseconds" << std::endl;
         writeFile(output_file, data);
     }
-    else if (sorting_type == "quick"){
+    else if (sorting_type == "quick" || sorting_type == "Quick"){
         // Start timer
         std::chrono::system_clock::time_point start = std::chrono::high_resolution_clock::now();
 
@@ -76,7 +90,7 @@ int main(int argc, char** argv){
         std::cout << "Time taken by function: " << duration.count() << " milliseconds" << std::endl;
         writeFile(output_file, data);
     }
-    else if (sorting_type == "heap"){
+    else if (sorting_type == "heap" || sorting_type == "Heap"){
         // Start timer
         std::chrono::system_clock::time_point start = std::chrono::high_resolution_clock::now();
         
