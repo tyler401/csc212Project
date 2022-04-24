@@ -152,7 +152,7 @@ void writeLog(std::chrono::milliseconds duration, std::string sorting_type){
     std::ofstream logFile(fname, std::ofstream::app);
 
     if(logFile.is_open()){
-        logFile <<"Time taken by " << sorting_type << ": " << duration.count() << "\n";
+        logFile <<"Time taken by " << sorting_type << "sort: " << duration.count() << "milliseconds \n";
     }else{
         std::cout << "ERROR!\n";
     }
