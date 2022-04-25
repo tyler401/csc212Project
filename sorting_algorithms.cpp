@@ -22,7 +22,7 @@ void heapSort(std::vector<int> &data);
 
 void readFile(std::string &fname, std::vector<int> &data);
 void writeFile(std::string &fname, std::vector<int> &data);
-void writeLog(std::chrono::milliseconds duration, std::string sorting_type, std::string input_file, std::string output_file);
+void writeLog(std::chrono::nanoseconds duration, std::string sorting_type, std::string input_file, std::string output_file);
 
 // -- Main --
 
@@ -57,7 +57,7 @@ int main(int argc, char** argv){
 
         // Stop timer
         std::chrono::system_clock::time_point stop = std::chrono::high_resolution_clock::now();
-        std::chrono::milliseconds duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+        std::chrono::nanoseconds duration = std::chrono::duration_cast<std::chrono::nanoseconds>(stop - start);
         writeFile(output_file, data);
         writeLog(duration, sorting_type, input_file, output_file);
     }
@@ -69,7 +69,7 @@ int main(int argc, char** argv){
 
         // Stop timer
         std::chrono::system_clock::time_point stop = std::chrono::high_resolution_clock::now();
-        std::chrono::milliseconds duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+        std::chrono::nanoseconds duration = std::chrono::duration_cast<std::chrono::nanoseconds>(stop - start);
         writeFile(output_file, data);
         writeLog(duration, sorting_type, input_file, output_file);
     }
@@ -81,7 +81,7 @@ int main(int argc, char** argv){
 
         // Stop timer
         std::chrono::system_clock::time_point stop = std::chrono::high_resolution_clock::now();
-        std::chrono::milliseconds duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+        std::chrono::nanoseconds duration = std::chrono::duration_cast<std::chrono::nanoseconds>(stop - start);
         writeFile(output_file, data);
         writeLog(duration, sorting_type, input_file, output_file);
     }
@@ -94,7 +94,7 @@ int main(int argc, char** argv){
 
         // Stop timer
         std::chrono::system_clock::time_point stop = std::chrono::high_resolution_clock::now();
-        std::chrono::milliseconds duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+        std::chrono::nanoseconds duration = std::chrono::duration_cast<std::chrono::nanoseconds>(stop - start);
         writeFile(output_file, data);
         writeLog(duration, sorting_type, input_file, output_file);
     }
@@ -147,12 +147,12 @@ void writeFile(std::string &fname, std::vector<int> &data){
 }
 
 // Write out log
-void writeLog(std::chrono::milliseconds duration, std::string sorting_type, std::string input_file, std::string output_file){
+void writeLog(std::chrono::nanoseconds duration, std::string sorting_type, std::string input_file, std::string output_file){
     std::string fname = "timeLog.txt";
     std::ofstream logFile(fname, std::ofstream::app);
 
     if(logFile.is_open()){
-        logFile <<"Time taken to " << sorting_type << " sort " << input_file << " into " << output_file << " was: " << duration.count() << " milliseconds \n";
+        logFile <<"Time taken to " << sorting_type << " sort " << input_file << " into " << output_file << " was: " << duration.count() << " nanoseconds \n";
     }else{
         std::cout << "ERROR!\n";
     }
