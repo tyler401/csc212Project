@@ -1,0 +1,3 @@
+Time taken to merge sort 10k.txt into lolll.txt was: 2 milliseconds 
+Time taken to merge sort 10k.txt into lolds was: 2 milliseconds 
+Time taken to merge sort 10k.txt into lolsasd was: 2 milliseconds 

@@ -9,7 +9,8 @@
 #include <sstream>
 #include <random>
 #include <chrono>
-
+#include <iomanip>
+#include <ctime>
 // -- Function declaration
 //
 
@@ -51,49 +52,49 @@ int main(int argc, char** argv){
 
     if (sorting_type == "insertion" || sorting_type == "Insertion" || sorting_type == "insert" || sorting_type == "Insert"){
         // Start timer
-        std::chrono::system_clock::time_point start = std::chrono::high_resolution_clock::now();
+           std::chrono::high_resolution_clock::time_point start = std::chrono::high_resolution_clock::now();
 
         insertionSort(data);
 
         // Stop timer
-        std::chrono::system_clock::time_point stop = std::chrono::high_resolution_clock::now();
+        std::chrono::high_resolution_clock::time_point stop = std::chrono::high_resolution_clock::now();
         std::chrono::milliseconds duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
         writeFile(output_file, data);
         writeLog(duration, sorting_type, input_file, output_file);
     }
     else if (sorting_type == "merge" || sorting_type == "Merge"){
        // Start timer
-        std::chrono::system_clock::time_point start = std::chrono::high_resolution_clock::now();
+        std::chrono::high_resolution_clock::time_point start = std::chrono::high_resolution_clock::now();
 
         mergesort(data);
 
         // Stop timer
-        std::chrono::system_clock::time_point stop = std::chrono::high_resolution_clock::now();
+        std::chrono::high_resolution_clock::time_point stop = std::chrono::high_resolution_clock::now();
         std::chrono::milliseconds duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
         writeFile(output_file, data);
         writeLog(duration, sorting_type, input_file, output_file);
     }
     else if (sorting_type == "quick" || sorting_type == "Quick"){
         // Start timer
-        std::chrono::system_clock::time_point start = std::chrono::high_resolution_clock::now();
+        std::chrono::high_resolution_clock::time_point start = std::chrono::high_resolution_clock::now();
 
         quickSort(data);
 
         // Stop timer
-        std::chrono::system_clock::time_point stop = std::chrono::high_resolution_clock::now();
+        std::chrono::high_resolution_clock::time_point stop = std::chrono::high_resolution_clock::now();
         std::chrono::milliseconds duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
         writeFile(output_file, data);
         writeLog(duration, sorting_type, input_file, output_file);
     }
     else if (sorting_type == "heap" || sorting_type == "Heap"){
         // Start timer
-        std::chrono::system_clock::time_point start = std::chrono::high_resolution_clock::now();
+        std::chrono::high_resolution_clock::time_point start = std::chrono::high_resolution_clock::now();
         
         int n = sizeof(data) / sizeof(data[0]);
         heapSort(data);
 
         // Stop timer
-        std::chrono::system_clock::time_point stop = std::chrono::high_resolution_clock::now();
+        std::chrono::high_resolution_clock::time_point stop = std::chrono::high_resolution_clock::now();
         std::chrono::milliseconds duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
         writeFile(output_file, data);
         writeLog(duration, sorting_type, input_file, output_file);
