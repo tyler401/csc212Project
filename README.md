@@ -3,9 +3,9 @@
 <strong>Tyler, Cam, Ericsen, Bowen Drawbridge</strong>
 
 > This program will take 1 parameter to run: ./sorting_algorithms
-> You will then be prompted to enter a sort type: 'insertion', 'merge', 'quick', or 'heap'
-> Then enter the input file from which you will be reading: 'input_file.txt'
-> Lastly enter a custom name for the sorted output file: 'output_sort.txt'
+>> You will then be prompted to enter a sort type: 'insertion', 'merge', 'quick', or 'heap'
+>>> Then enter the input file from which you will be reading: 'input_file.txt'
+>>>> Lastly enter a custom name for the sorted output file: 'output_sort.txt'
 
 
 <h2> Insertion Sort </h2>
