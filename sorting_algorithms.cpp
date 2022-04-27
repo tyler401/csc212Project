@@ -12,8 +12,9 @@
 #include <iomanip>
 #include <ctime>
 
-// -- Function declaration
-//
+// -- Function declarations --
+
+// - Sort declarations -
 
 void insertionSort(std::vector<int> &data, std::string visual_Response);
 void mergesort(std::vector<int> &A);
@@ -21,6 +22,8 @@ int partition(std::vector<int> &data, int low, int high);
 void r_quickSort(std::vector<int> &data, int low, int high);
 void quickSort(std::vector<int> &data);
 void heapSort(std::vector<int> &data);
+
+// - File access declarations -
 
 void readFile(std::string &fname, std::vector<int> &data);
 void writeFile(std::string &fname, std::vector<int> &data);
@@ -32,20 +35,24 @@ void writeVisual(std::vector<int> &data);
 
 int main(int argc, char** argv){
 
+    // Create strings for the user inputs
     std::string sorting_type;
     std::string input_file;
     std::string output_file;
     std::string visual_Response;
 
+    // Request sort type from user
     std::cout << std::endl;
-    std::cout << "Choose your sorting type: ";
+    std::cout << "Choose your sorting type (inserion, merge, quick, heap): ";
     std::cin >>  sorting_type;
     std::cout << std::endl;
 
+    // Request input file from user
     std::cout << "Choose the input file you want to use: ";
     std::cin >> input_file; 
     std::cout << std::endl;
 
+    // Request a custom output file name from user
     std::cout << "Choose the file name of your sorted output: ";
     std::cin >> output_file;
     std::cout << std::endl;
@@ -55,8 +62,11 @@ int main(int argc, char** argv){
     std::cout << std::endl;
 
 
+    // Call readFile on the chosen input file
     std::vector<int> data;
     readFile(input_file, data);
+
+    // -- if statments for each possible user-input sort --
 
     if (sorting_type == "insertion" || sorting_type == "Insertion" || sorting_type == "insert" || sorting_type == "Insert"){
         // Start timer
@@ -107,6 +117,7 @@ int main(int argc, char** argv){
         writeFile(output_file, data);
         writeLog(duration, sorting_type, input_file, output_file);
     }
+    // If no valid sort is input output error message
     else {
         std::cout << "Did not select valid sorting algorithm.\n";
     }
@@ -120,6 +131,7 @@ void readFile(std::string &fname, std::vector<int> &data){
     std::string line;
     std::ifstream file(fname);
 
+    // Read in the array from the file (accounting for commas)
     if(file.is_open()){
         while(getline(file, line, ',')){
             std::istringstream iss(line);
@@ -128,6 +140,7 @@ void readFile(std::string &fname, std::vector<int> &data){
                 data.push_back(token);
             }
         }
+        // Close input file after reading is complete
         file.close();
     }
     else{
@@ -156,16 +169,18 @@ void writeFile(std::string &fname, std::vector<int> &data){
     outFile.close();
 }
 
-// Write out log
+// Write out time log
 void writeLog(std::chrono::milliseconds duration, std::string sorting_type, std::string input_file, std::string output_file){
     std::string fname = "timeLog.txt";
     std::ofstream logFile(fname, std::ofstream::app);
 
+    // Cout message for the time taken for specific sort on specific file
     if(logFile.is_open()){
         logFile <<"Time taken to " << sorting_type << " sort " << input_file << " into " << output_file << " was: " << duration.count() << " milliseconds \n";
     }else{
         std::cout << "ERROR!\n";
     }
+    // Close file after each individual sort
     logFile.close();
 }
 
@@ -195,6 +210,7 @@ void writeVisual(std::vector<int> &data){
 // -- Sorting Algorithms --
 //
 
+// - Insertion Sort -
 void insertionSort(std::vector<int> &data, std::string visual_Response){
     for (unsigned int i = 0; i < data.size(); i++){
         for (unsigned int j = i; j > 0; j--){
@@ -211,6 +227,8 @@ void insertionSort(std::vector<int> &data, std::string visual_Response){
         }
     }
 }
+
+// - Merge Sort -
 
 void merge(int *A, int *aux, int lo, int mid, int hi) {
 // copy array
@@ -242,6 +260,8 @@ void mergesort(std::vector<int> &A){
     r_mergesort (&A[0], aux, 0, n-1) ;
     delete [] aux;
 }
+
+// - Quick Sort -
 
 int partition(std::vector<int> &data, int low, int high){
     int i = low;
@@ -290,45 +310,47 @@ void quickSort(std::vector<int> &data){
     r_quickSort(data, 0, n - 1);
 }
 
-// To heapify a subtree rooted with node i which is
-// an index in arr[]. n is size of heap
+// - Heap Sort -
+
+// Function to create the heap from an array
 void heapify(std::vector<int> &data, int n, int i)
 {
-	int largest = i; // Initialize largest as root
-	int l = 2 * i + 1; // left = 2*i + 1
-	int r = 2 * i + 2; // right = 2*i + 2
+    // Set largest as root
+	int largest = i;
+	int l = 2 * i + 1;
+	int r = 2 * i + 2;
 
 	// If left child is larger than root
 	if (l < n && data[l] > data[largest])
 		largest = l;
 
-	// If right child is larger than largest so far
+	// If right child is larger than the current largest
 	if (r < n && data[r] > data[largest])
 		largest = r;
 
-	// If largest is not root
+	// If largest is not root swap it
 	if (largest != i) {
 		std::swap(data[i], data[largest]);
 
-		// Recursively heapify the affected sub-tree
+		// Repeat the heapify process
 		heapify(data, n, largest);
 	}
 }
 
-// main function to do heap sort
+// Main function to sort the heap
 void heapSort(std::vector<int> &data)
 {
     int n = data.size();
-	// Build heap (rearrange array)
+	// Construct heap
 	for (int i = n / 2 - 1; i >= 0; i--)
 		heapify(data, n, i);
 
-	// One by one extract an element from heap
+	// One by one extract element from heap
 	for (int i = n - 1; i >= 0; i--) {
 		// Move current root to end
 		std::swap(data[0], data[i]);
 
-		// call max heapify on the reduced heap
+		// call heapify on the reduced heap
 		heapify(data, i, 0);
 	}
 }
