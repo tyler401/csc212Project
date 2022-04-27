@@ -149,7 +149,7 @@ void readFile(std::string &fname, std::vector<int> &data){
     }
 }
 
-// Write out sorted file contents
+// Write sorted data into an output file named by the user
 void writeFile(std::string &fname, std::vector<int> &data){
     std::ofstream outFile(fname);
     unsigned int lastNumIndex = data.size()-1;
@@ -170,7 +170,7 @@ void writeFile(std::string &fname, std::vector<int> &data){
     outFile.close();
 }
 
-// Write out time log
+// Write a time log to a file named "timeLog.txt"
 void writeLog(std::chrono::milliseconds duration, std::string sorting_type, std::string input_file, std::string output_file){
     std::string fname = "timeLog.txt";
     std::ofstream logFile(fname, std::ofstream::app);
@@ -185,7 +185,7 @@ void writeLog(std::chrono::milliseconds duration, std::string sorting_type, std:
     logFile.close();
 }
 
-// Write out sorting visual
+// Write a list of all the steps it took to sort into a file called "sortingVisual.txt"
 void writeVisual(std::vector<int> &data){
     std::string fname = "sortingVisual.txt";
     std::ofstream visualFile(fname, std::ofstream::app);
