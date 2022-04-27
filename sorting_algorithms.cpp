@@ -40,7 +40,7 @@ int main(int argc, char** argv){
 
     // Request sort type from user
     std::cout << std::endl;
-    std::cout << "Choose your sorting type: ";
+    std::cout << "Choose your sorting type (inserion, merge, quick, heap): ";
     std::cin >>  sorting_type;
     std::cout << std::endl;
 
