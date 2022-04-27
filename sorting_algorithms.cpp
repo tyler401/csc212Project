@@ -15,7 +15,7 @@
 // -- Function declaration
 //
 
-void insertionSort(std::vector<int> &data);
+void insertionSort(std::vector<int> &data, std::string visual_Response);
 void mergesort(std::vector<int> &A);
 int partition(std::vector<int> &data, int low, int high);
 void r_quickSort(std::vector<int> &data, int low, int high);
@@ -25,14 +25,17 @@ void heapSort(std::vector<int> &data);
 void readFile(std::string &fname, std::vector<int> &data);
 void writeFile(std::string &fname, std::vector<int> &data);
 void writeLog(std::chrono::milliseconds duration, std::string sorting_type, std::string input_file, std::string output_file);
+void writeVisual(std::vector<int> &data);
 
 // -- Main --
+//
 
 int main(int argc, char** argv){
 
     std::string sorting_type;
     std::string input_file;
     std::string output_file;
+    std::string visual_Response;
 
     std::cout << std::endl;
     std::cout << "Choose your sorting type: ";
@@ -47,6 +50,10 @@ int main(int argc, char** argv){
     std::cin >> output_file;
     std::cout << std::endl;
 
+    std::cout << "Do you want to activate the visual for the sort (yes or no): ";
+    std::cin >> visual_Response;
+    std::cout << std::endl;
+
 
     std::vector<int> data;
     readFile(input_file, data);
@@ -55,7 +62,7 @@ int main(int argc, char** argv){
         // Start timer
            std::chrono::high_resolution_clock::time_point start = std::chrono::high_resolution_clock::now();
 
-        insertionSort(data);
+        insertionSort(data, visual_Response);
 
         // Stop timer
         std::chrono::high_resolution_clock::time_point stop = std::chrono::high_resolution_clock::now();
@@ -106,6 +113,7 @@ int main(int argc, char** argv){
 }
 
 // -- Functions --
+//
 
 // Read in text file
 void readFile(std::string &fname, std::vector<int> &data){
@@ -161,9 +169,33 @@ void writeLog(std::chrono::milliseconds duration, std::string sorting_type, std:
     logFile.close();
 }
 
-// -- Sorting Algorithms --
+// Write out sorting visual
+void writeVisual(std::vector<int> &data){
+    std::string fname = "sortingVisual.txt";
+    std::ofstream visualFile(fname, std::ofstream::app);
+    unsigned int lastNumIndex = data.size()-1;
 
-void insertionSort(std::vector<int> &data){
+    if(visualFile.is_open()){
+        for(unsigned int i = 0; i < data.size(); i++){
+            int num = data[i];
+
+            if(i == lastNumIndex){
+                visualFile << num;
+            }else{
+                visualFile << num << " ";
+            }
+        }
+        visualFile << "\n";
+    }else{
+        std::cout << "ERROR!\n";
+    }
+    visualFile.close();
+}
+
+// -- Sorting Algorithms --
+//
+
+void insertionSort(std::vector<int> &data, std::string visual_Response){
     for (unsigned int i = 0; i < data.size(); i++){
         for (unsigned int j = i; j > 0; j--){
             // inserts data[j] into the sorted section
@@ -172,6 +204,10 @@ void insertionSort(std::vector<int> &data){
             } else {
                 break;
             }
+        }
+        // Write visual to the sortingVisual file IF ACTIVATED
+        if(visual_Response == "yes"){
+            writeVisual(data);
         }
     }
 }
