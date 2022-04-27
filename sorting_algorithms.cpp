@@ -122,6 +122,7 @@ void readFile(std::string &fname, std::vector<int> &data){
     std::string line;
     std::ifstream file(fname);
 
+    // Read in the array from the file (accounting for commas)
     if(file.is_open()){
         while(getline(file, line, ',')){
             std::istringstream iss(line);
@@ -130,6 +131,7 @@ void readFile(std::string &fname, std::vector<int> &data){
                 data.push_back(token);
             }
         }
+        // Close input file after reading is complete
         file.close();
     }
     else{
@@ -158,16 +160,18 @@ void writeFile(std::string &fname, std::vector<int> &data){
     outFile.close();
 }
 
-// Write out log
+// Write out time log
 void writeLog(std::chrono::milliseconds duration, std::string sorting_type, std::string input_file, std::string output_file){
     std::string fname = "timeLog.txt";
     std::ofstream logFile(fname, std::ofstream::app);
 
+    // Cout message for the time taken for specific sort on specific file
     if(logFile.is_open()){
         logFile <<"Time taken to " << sorting_type << " sort " << input_file << " into " << output_file << " was: " << duration.count() << " milliseconds \n";
     }else{
         std::cout << "ERROR!\n";
     }
+    // Close file after each individual sort
     logFile.close();
 }
 
