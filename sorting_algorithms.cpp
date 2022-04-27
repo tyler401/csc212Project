@@ -216,14 +216,15 @@ void writeVisual(std::vector<int> &data){
 void insertionSort(std::vector<int> &data, std::string visual_Response){
     for (unsigned int i = 0; i < data.size(); i++){
         for (unsigned int j = i; j > 0; j--){
-            // inserts data[j] into the sorted section
+            // Inserts data[j] into the sorted section
             if (data[j] < data[j - 1]){
                 std::swap(data[j], data[j - 1]);
             } else {
                 break;
             }
         }
-        // Write visual to the sortingVisual file IF ACTIVATED
+        // Writes the current state of the data to a 
+        // file if the user said yes.
         if(visual_Response == "yes"){
             writeVisual(data);
         }
