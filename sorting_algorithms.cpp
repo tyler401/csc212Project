@@ -13,6 +13,7 @@
 #include <ctime>
 
 // -- Function declarations --
+//
 
 // - Sort declarations -
 
@@ -211,6 +212,7 @@ void writeVisual(std::vector<int> &data){
 //
 
 // - Insertion Sort -
+
 void insertionSort(std::vector<int> &data, std::string visual_Response){
     for (unsigned int i = 0; i < data.size(); i++){
         for (unsigned int j = i; j > 0; j--){
