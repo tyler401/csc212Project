@@ -43,23 +43,28 @@ int main(int argc, char** argv){
     std::string visual_Response;
 
     // Request sort type from user
+    std::cout << "____________________________________________________________________" << std::endl;
     std::cout << std::endl;
     std::cout << "Choose your sorting type (inserion, merge, quick, heap): ";
     std::cin >>  sorting_type;
+    std::cout << "____________________________________________________________________" << std::endl;
     std::cout << std::endl;
 
     // Request input file from user
     std::cout << "Choose the input file you want to use: ";
     std::cin >> input_file; 
+    std::cout << "____________________________________________________________________" << std::endl;
     std::cout << std::endl;
 
     // Request a custom output file name from user
     std::cout << "Choose the file name of your sorted output: ";
     std::cin >> output_file;
+    std::cout << "____________________________________________________________________" << std::endl;
     std::cout << std::endl;
 
     std::cout << "Do you want to activate the visual for the sort (yes or no): ";
     std::cin >> visual_Response;
+    std::cout << "____________________________________________________________________" << std::endl;
     std::cout << std::endl;
 
 
@@ -122,6 +127,11 @@ int main(int argc, char** argv){
     else {
         std::cout << "Did not select valid sorting algorithm.\n";
     }
+    std:: cout << "Your file '" << input_file << "' has been " << sorting_type << " sorted into '" << output_file << "'" << std::endl;
+    std::cout << std::endl;
+    std::cout << "Goodbye" << std::endl;
+    std::cout << "____________________________________________________________________" << std::endl;
+    std::cout << std::endl;   
 }
 
 // -- Functions --
