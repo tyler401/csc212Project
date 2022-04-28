@@ -2,8 +2,8 @@
 <strong>Tyler, Cam, Ericsen, Bowen Drawbridge</strong>
 
 
-This Command line program serves the purpose of sorting list of numbers seperated by whitespace from a txt file into
-and output txt file well also loging the performance of each algorithm. The program is capable of four merge types Insertion sort,MergeSort,QuickSort and Heap Sort.
+<p>This Command line program serves the purpose of sorting list of numbers seperated by whitespace from a txt file into
+and output txt file well also loging the performance of each algorithm. The program is capable of four merge types Insertion sort,MergeSort,QuickSort and Heap Sort.</p>
 
 > This program will take 1 parameter to run: ./sorting_algorithms
 >> You will then be prompted to enter a sort type: 'insertion' || 'merge' || 'quick' || 'heap'
