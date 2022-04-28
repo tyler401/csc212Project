@@ -182,7 +182,7 @@ void writeFile(std::string &fname, std::vector<int> &data){
 
 // Write a time log to a file named "timeLog.txt"
 void writeLog(std::chrono::milliseconds duration, std::string sorting_type, std::string input_file, std::string output_file){
-    std::string fname = "timeLog.txt";
+    std::string fname = "time_log.txt";
     std::ofstream logFile(fname, std::ofstream::app);
 
     // Cout message for the time taken for specific sort on specific file
