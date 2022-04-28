@@ -45,24 +45,32 @@ int main(int argc, char** argv){
     // Request sort type from user
     std::cout << "____________________________________________________________________" << std::endl;
     std::cout << std::endl;
-    std::cout << "Choose your sorting type (inserion, merge, quick, heap): ";
-    std::cin >>  sorting_type;
+    std::cout << "Choose your sorting type (inserion, merge, quick, heap): " << std::endl;
+    std::cout << std::endl;
+    std::cout << "Sort type: ";
+    std::cin >> sorting_type;
     std::cout << "____________________________________________________________________" << std::endl;
     std::cout << std::endl;
 
     // Request input file from user
-    std::cout << "Choose the input file you want to use: ";
+    std::cout << "Choose the input file you want to use: " << std::endl;
+    std::cout << std::endl;
+    std::cout << "Input file name: ";
     std::cin >> input_file; 
     std::cout << "____________________________________________________________________" << std::endl;
     std::cout << std::endl;
 
     // Request a custom output file name from user
-    std::cout << "Choose the file name of your sorted output: ";
+    std::cout << "Choose the file name of your sorted output: " << std::endl;
+    std::cout << std::endl;
+    std::cout << "Output file name: ";
     std::cin >> output_file;
     std::cout << "____________________________________________________________________" << std::endl;
     std::cout << std::endl;
 
-    std::cout << "Do you want to activate the visual for the sort (yes or no): ";
+    std::cout << "Do you want to activate the visual for the sort (yes/no): " << std::endl;
+    std::cout << std::endl;
+    std::cout << " yes/no: ";
     std::cin >> visual_Response;
     std::cout << "____________________________________________________________________" << std::endl;
     std::cout << std::endl;
