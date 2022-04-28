@@ -1,6 +1,4 @@
 <h3> # CSC212 - Final Project Sorting Algorithms</h4>
-<strong>Tyler, Cam, Ericsen, Bowen Drawbridge</strong>
-
 
 <p>This Command line program serves the purpose of sorting list of numbers seperated by whitespace from a txt file into
 and output txt file well also loging the performance of each algorithm. The program is capable of four merge types Insertion sort,MergeSort,QuickSort and Heap Sort.</p>
@@ -25,3 +23,5 @@ and output txt file well also loging the performance of each algorithm. The prog
 
 <h2> Heap Sort </h2>
 <p>Swap, Remove, Heapify, Repeat. Heap Sort divides its input into a sorted and an unsorted region, iteratively shrinking the unsorted region by extracting the largest element from it and inserting it into the sorted region. It does not waste time with a linear-time scan of the unsorted region; rather, heap sort maintains the unsorted region in a heap data structure to more quickly find the largest element in each step.</p>
+
+<strong> Implemented by Tyler Makhoul, Cam, Ericsen, Bowen Drawbridge</strong>
