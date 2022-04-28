@@ -1,5 +1,0 @@
-Time taken to insert sort 10k.txt into rev10kthis.txt was: 369 milliseconds 
-Time taken to insert sort 20k.txt into rev20Kthis.txt was: 698 milliseconds 
-Time taken to insert sort 20k.txt into rev20Kthis.txt was: 701 milliseconds 
-Time taken to insert sort 40k.txt into rev40Kthis.txt was: 2689 milliseconds 
-Time taken to insert sort 70k.txt into rev70Kthis.txt was: 8249 milliseconds 
