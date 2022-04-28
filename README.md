@@ -24,4 +24,4 @@ and output txt file well also loging the performance of each algorithm. The prog
 <h2> Heap Sort </h2>
 <p>Swap, Remove, Heapify, Repeat. Heap Sort divides its input into a sorted and an unsorted region, iteratively shrinking the unsorted region by extracting the largest element from it and inserting it into the sorted region. It does not waste time with a linear-time scan of the unsorted region; rather, heap sort maintains the unsorted region in a heap data structure to more quickly find the largest element in each step.</p>
 
-<strong> Implemented by Tyler Makhoul, Cam, Ericsen, Bowen Drawbridge</strong>
+<strong> Implemented by Tyler Makhoul, Cam McGurer, Ericsen Semedo, Bowen Drawbridge</strong>
