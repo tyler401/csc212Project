@@ -68,7 +68,7 @@ int main(int argc, char** argv){
     std::cout << "____________________________________________________________________" << std::endl;
     std::cout << std::endl;
 
-    std::cout << "Do you want to activate the visual for the sort (yes/no): " << std::endl;
+    std::cout << "Do you want to activate the visual for the sort: " << std::endl;
     std::cout << std::endl;
     std::cout << " yes/no: ";
     std::cin >> visual_Response;
