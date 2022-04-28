@@ -12,7 +12,10 @@
 <p>Insertion Sort uses the logic used when ordering a deck of cards in acendinig order. The unsorted cards are layed out in a row left to right. As you look at each card you check the card you're looking at is not less than the ones to the left. If it is you place it in the right spot and push the other cards down right. This repeats until all the cards are sorted.</p>
 
 <h2> Mergesort </h2>
-<p>some paragraph about MergeSort here</p>
+<p> Merge sort follows a Divide, Conquer, Merge order. By dividing the array in half recurevely and then sorting and merging. When implemented correctly Merge Sort is a very effiecent sorting algorithm and is ideal for external storage sorting. With a best case complexity of o((n)log^2(n)) and a worse case of o((n)log^2(n)) its performance is very consistent. This makes it a weak point for smaller arrays.
+
+
+</p>
 
 <h2> Quicksort </h2>
 <p>Quicksort is an in-place divide and conquer algorithm that uses a pivot element to partition the input array into two sub-arrays, which are then sorted recursively. When implemented well it can be faster than mergesort and multiple times faster than heap sort. A mathmatical analysis of quicksort proves that, worst case, the algorithm runs in O(n^2) and on average it runs in O(n logn) time.</p>
