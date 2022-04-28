@@ -15,7 +15,6 @@
 #include <ctime>
 #include <thread>  
 #include <iostream>
-
 #include <sstream>
 #include <string>
 #include <vector>
@@ -62,17 +61,14 @@ void mainer(){
 
     std::vector<int> data;
     readFile(input_file, data);
-    
-        // Start timer
-           std::chrono::high_resolution_clock::time_point start = std::chrono::high_resolution_clock::now();
-
-        insertionSort(data);
-
-        // Stop timer
-        std::chrono::high_resolution_clock::time_point stop = std::chrono::high_resolution_clock::now();
-        std::chrono::milliseconds duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-        writeFile(output_file, data);
-        writeLog(duration, sorting_type, input_file, output_file);
+    // Start timer
+    std::chrono::high_resolution_clock::time_point start = std::chrono::high_resolution_clock::now();
+    insertionSort(data);
+    // Stop timer
+    std::chrono::high_resolution_clock::time_point stop = std::chrono::high_resolution_clock::now();
+    std::chrono::milliseconds duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+    writeFile(output_file, data);
+    writeLog(duration, sorting_type, input_file, output_file);
    
 
 
@@ -140,12 +136,13 @@ void insertionSort(std::vector<int> &data){
     for (unsigned int i = 0; i < data.size(); i++){
         for (unsigned int j = i; j > 0; j--){
             // inserts data[j] into the sorted section
-            collection.push_back(int_array_to_string(data));
+            
             if (data[j] < data[j - 1]){
                 std::swap(data[j], data[j - 1]);
             } else {
                 break;
             }
+            collection.push_back(int_array_to_string(data));
         }
     }
  
@@ -155,7 +152,7 @@ void insertionSort(std::vector<int> &data){
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(1000, 300), "Super Insertion Displayer V1.0");
+    sf::RenderWindow window(sf::VideoMode(300, 200), "Super Insertion Displayer V1.0");
    window.setVisible(true);
    mainer();    
 
@@ -203,9 +200,9 @@ int main()
             window.display();
             if(collection.size()>1000){
                 std::this_thread::sleep_for(std::chrono::milliseconds(10));
-            }
+            }else{
             std::this_thread::sleep_for(std::chrono::milliseconds(500));
-
+            }
             window.clear();
     }std::this_thread::sleep_for(std::chrono::milliseconds(7000));
     window.close();
